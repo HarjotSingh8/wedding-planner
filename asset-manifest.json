@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/wedding-planner/static/css/main.d1b05096.chunk.css",
+    "main.js": "/wedding-planner/static/js/main.127cad44.chunk.js",
+    "main.js.map": "/wedding-planner/static/js/main.127cad44.chunk.js.map",
+    "runtime-main.js": "/wedding-planner/static/js/runtime-main.0a33869f.js",
+    "runtime-main.js.map": "/wedding-planner/static/js/runtime-main.0a33869f.js.map",
+    "static/js/2.04caf1d4.chunk.js": "/wedding-planner/static/js/2.04caf1d4.chunk.js",
+    "static/js/2.04caf1d4.chunk.js.map": "/wedding-planner/static/js/2.04caf1d4.chunk.js.map",
+    "index.html": "/wedding-planner/index.html",
+    "precache-manifest.5695b090c8fa5175c9d1a5432f5bae20.js": "/wedding-planner/precache-manifest.5695b090c8fa5175c9d1a5432f5bae20.js",
+    "service-worker.js": "/wedding-planner/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/wedding-planner/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.04caf1d4.chunk.js.LICENSE": "/wedding-planner/static/js/2.04caf1d4.chunk.js.LICENSE",
+    "static/media/logo.svg": "/wedding-planner/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0a33869f.js",
+    "static/js/2.04caf1d4.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.127cad44.chunk.js"
+  ]
+}
