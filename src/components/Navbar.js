@@ -8,6 +8,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+
 export default class Navbar extends Component {
   render() {
   return (
@@ -47,4 +48,3 @@ onNavigate={(event, callback) => {
   );
 }
 }
-
