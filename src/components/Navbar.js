@@ -22,22 +22,21 @@ export default class Navbar extends Component {
             <button type="button" class="btn btn-dark">Vendors</button>
             <div class="btn-group">
               <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
-                LOCATION
+                BANQUETS
               </button>
               <div id="location-dropdown" class="dropdown-menu">
                 <Link class="dropdown-item" to="all" >All Locations</Link>
                 {/*<Link class="dropdown-item" to="chandigarh">CHANDIGARH</Link>*/}
                 {this.props.cities.map((key, index) => {
                   return <Link class="dropdown-item" to={`/city/${key}`}
-onNavigate={(event, callback) => {
-    fetch("https://wedding-planner-40fad.firebaseio.com/banquets/"+key+".json")
+/*onNavigate={(event, callback) => {
+    fetch("https://wp-database-d7c6f.firebaseio.com//banquets/"+key+".json")
       .then(res => res.json())
       .then(res =>
-	
 {console.log(res)
 	this.setState({banquets:res})
         })
-  }}
+  }}*/
 >{key}</Link>
                 })}
               </div>

@@ -10,7 +10,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 
-export default class City extends Component {
+export default class all extends Component {
   render() {
   return (
       <div>

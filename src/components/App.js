@@ -1,50 +1,70 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import Navbar from "./Navbar.js"
-import Home from "./Home.js"
-import Users from "./Users"
-import About from "./About"
+import Navbar from './navbar.js'
+import All from './all.js'
+import City from './city.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
-function App() {
+export default class App extends Component {
+  state= {
+    cities : []
+  }
+  componentDidMount() {
+    console.log("called ");
+    fetch("https://wp-database-d7c6f.firebaseio.com/cities.json")
+      .then(res => res.json())
+      .then(res =>
+	
+{console.log(res)
+	this.setState({cities:res})
+        }
+      );
+  }
+  render() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
+      <Navbar cities={this.state.cities}/>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
+        {/*<Switch>*/}
+        {this.state.cities.map((index, value) => (
+          <Route path={`/city/${value}`}>
+            <City cities={this.state.cities} k={index} />
+          </Route>
+        ))}
+        {/*<Route path="/chandigarh">
+          <Chandigarh banquets={this.state.banquets}/>
+        </Route>*/}
+        <Route path="/all">
+          <All banquets={this.state.cities}/>
+        </Route>
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/home">
+            <Home />
           </Route>
-          <Route path="/">
-            <Navbar />
-          </Route>
-        </Switch>
+        {/*</Switch>*/}
+
       </div>
     </Router>
-  );
+  );}
 }
 
-export default App;
+function Home() {
+  return <h2>Home</h2>;
+}
+
+
+
+function About() {
+  return <h2>About</h2>;
+}
