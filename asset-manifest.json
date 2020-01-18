@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/wedding-planner/static/css/main.d1b05096.chunk.css",
-    "main.js": "/wedding-planner/static/js/main.127cad44.chunk.js",
-    "main.js.map": "/wedding-planner/static/js/main.127cad44.chunk.js.map",
+    "main.css": "/wedding-planner/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/wedding-planner/static/js/main.bcbef0e1.chunk.js",
+    "main.js.map": "/wedding-planner/static/js/main.bcbef0e1.chunk.js.map",
     "runtime-main.js": "/wedding-planner/static/js/runtime-main.0a33869f.js",
     "runtime-main.js.map": "/wedding-planner/static/js/runtime-main.0a33869f.js.map",
-    "static/js/2.04caf1d4.chunk.js": "/wedding-planner/static/js/2.04caf1d4.chunk.js",
-    "static/js/2.04caf1d4.chunk.js.map": "/wedding-planner/static/js/2.04caf1d4.chunk.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/wedding-planner/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.65d405c1.chunk.js": "/wedding-planner/static/js/2.65d405c1.chunk.js",
+    "static/js/2.65d405c1.chunk.js.map": "/wedding-planner/static/js/2.65d405c1.chunk.js.map",
     "index.html": "/wedding-planner/index.html",
-    "precache-manifest.5695b090c8fa5175c9d1a5432f5bae20.js": "/wedding-planner/precache-manifest.5695b090c8fa5175c9d1a5432f5bae20.js",
+    "precache-manifest.a1bf2ec4ede785b55a78720f5a45c34e.js": "/wedding-planner/precache-manifest.a1bf2ec4ede785b55a78720f5a45c34e.js",
     "service-worker.js": "/wedding-planner/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/wedding-planner/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.04caf1d4.chunk.js.LICENSE": "/wedding-planner/static/js/2.04caf1d4.chunk.js.LICENSE",
-    "static/media/logo.svg": "/wedding-planner/static/media/logo.5d5d9eef.svg"
+    "static/css/2.47e06e2e.chunk.css.map": "/wedding-planner/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/wedding-planner/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.65d405c1.chunk.js.LICENSE": "/wedding-planner/static/js/2.65d405c1.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.0a33869f.js",
-    "static/js/2.04caf1d4.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.127cad44.chunk.js"
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.65d405c1.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.bcbef0e1.chunk.js"
   ]
 }
