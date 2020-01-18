@@ -13,22 +13,22 @@ export default class Navbar extends Component {
   render() {
   return (
       <div>
-        <div class="d-flex flex-row bg-dark text-white">  {/*Navbar*/}
-          <div class="p-2 bg-dark text-monospace">
+        <div className="d-flex flex-row bg-dark text-white">  {/*Navbar*/}
+          <div className="p-2 bg-dark text-monospace">
             WEDDING PLANNER
           </div>
-          <div class="btn-group">
-            <button type="button" class="btn btn-dark">Venues</button>
-            <button type="button" class="btn btn-dark">Vendors</button>
-            <div class="btn-group">
-              <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+          <div className="btn-group">
+            <button type="button" className="btn btn-dark">Venues</button>
+            <button type="button" className="btn btn-dark">Vendors</button>
+            <div className="btn-group">
+              <button type="button" className="btn btn-dark dropdown-toggle" data-toggle="dropdown">
                 BANQUETS
               </button>
-              <div id="location-dropdown" class="dropdown-menu">
-                <Link class="dropdown-item" to="all" >All Locations</Link>
-                {/*<Link class="dropdown-item" to="chandigarh">CHANDIGARH</Link>*/}
-                {this.props.cities.map((key, index) => {
-                  return <Link class="dropdown-item" to={`/city/${key}`}
+              <div id="location-dropdown" className="dropdown-menu">
+                <Link className="dropdown-item" to="all" >All Locations</Link>
+                {/*<Link className="dropdown-item" to="chandigarh">CHANDIGARH</Link>*/}
+                {this.props.cities.map((item, key) => {
+                  return <Link className="dropdown-item" to={`/city/${item}`}
 /*onNavigate={(event, callback) => {
     fetch("https://wp-database-d7c6f.firebaseio.com//banquets/"+key+".json")
       .then(res => res.json())
@@ -37,7 +37,7 @@ export default class Navbar extends Component {
 	this.setState({banquets:res})
         })
   }}*/
->{key}</Link>
+>{item}</Link>
                 })}
               </div>
             </div>

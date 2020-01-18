@@ -32,28 +32,12 @@ export default class App extends Component {
     <Router>
       <div>
       <Navbar cities={this.state.cities}/>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        {/*<Switch>*/}
-        {this.state.cities.map((index, value) => (
-          <Route path={`/city/${value}`}>
-            <City cities={this.state.cities} k={index} />
-          </Route>
+        {this.state.cities.map((item, index) => (
+          <Route path={`/city/${item}`}><City city={item}/></Route>
         ))}
-        {/*<Route path="/chandigarh">
-          <Chandigarh banquets={this.state.banquets}/>
-        </Route>*/}
-        <Route path="/all">
-          <All banquets={this.state.cities}/>
-        </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-        {/*</Switch>*/}
-
+        <Route path="/all"><All banquets={this.state.cities}/></Route>
+        <Route path="/about"><About /></Route>
+        <Route path="/home"><Home /></Route>
       </div>
     </Router>
   );}
