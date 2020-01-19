@@ -7,25 +7,16 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
+import './mastercss.css';
 
 
 export default class City extends Component {
 state= {
   banquets:{}
   }
-  componentWillReceiveProps () {
-    fetch("https://wp-database-d7c6f.firebaseio.com/banquets/"+this.props.cities[this.props.k]+".json")
-      .then(res => res.json())
-      .then(res =>
-	
-{console.log(res)
-	this.setState({banquets:res})
-        });
 
-}
   componentDidMount() {
-    console.log("called ");
+    console.log("didmount called");
     fetch("https://wp-database-d7c6f.firebaseio.com/banquets/"+this.props.city+".json")
       .then(res => res.json())
       .then(res =>
@@ -40,9 +31,20 @@ state= {
     <div>
       <div>
         <div className="d-flex flex-row bg-secondary text-white">
-          <div id="searchbar-div">
-            <input type="text" value="location" class="search location"/>
+          <div className="p-1 bg-secondary text-monospace">
+            Location
           </div>
+          <div class="searchdiv">
+            <input id="searchlocation" type="text" class="searchbar"/>
+          </div>
+          <div class="searchspacer"></div>
+          <div className="p-1 bg-secondary text-monospace">
+            Name
+          </div>
+          <div class="searchdiv">
+            <input id="searchname" type="text" class="searchbar"/>
+          </div>
+          <div class="searchspacer"></div>
         </div>
       </div>
       <div>

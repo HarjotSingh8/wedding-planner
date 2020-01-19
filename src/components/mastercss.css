@@ -1,0 +1,12 @@
+.searchdiv {
+    display: box; box-align: center;
+    padding:2px;
+}
+.searchspacer {
+    width:5%;
+}
+.searchbar{
+    display: box;
+    height:28px;
+    border-radius: 6px;
+}
