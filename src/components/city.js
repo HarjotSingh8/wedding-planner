@@ -9,12 +9,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './mastercss.css';
 
+function searchn(id) {
+
+}
 
 export default class City extends Component {
 state= {
-  banquets:{}
+  banquets:{},
+  arr:{}
   }
-
+  
   componentDidMount() {
     console.log("didmount called");
     fetch("https://wp-database-d7c6f.firebaseio.com/banquets/"+this.props.city+".json")
@@ -23,31 +27,43 @@ state= {
 	
 {console.log(res)
 	this.setState({banquets:res})
+        });
+        var arr={}
+        for(var key in this.state.banquets) {
+          arr[this.state.banquets[key].name]=key
         }
-      );
+        this.setState({arr:arr})
   }
   render() {
   return (
     <div>
+      
       <div>
         <div className="d-flex flex-row bg-secondary text-white">
-          <div className="p-1 bg-secondary text-monospace">
+          <div className="p-2 bg-secondary text-monospace">
             Location
           </div>
           <div class="searchdiv">
-            <input id="searchlocation" type="text" class="searchbar"/>
+            <input id="searchlocation" type="text" class="searchbar" placeholder="search location"/>
           </div>
           <div class="searchspacer"></div>
-          <div className="p-1 bg-secondary text-monospace">
+          <div className="p-2 bg-secondary text-monospace">
             Name
           </div>
           <div class="searchdiv">
-            <input id="searchname" type="text" class="searchbar"/>
+            <input id="searchname" type="text" class="searchbar" placeholder="search by name" onFocus={searchn("searchname")}/>
           </div>
           <div class="searchspacer"></div>
+          <div class="searchspacer"></div>
+            <div className="p-2 bg-secondary text-monospace">Price:</div>
+          <div className="btn-grp">
+            <button className="btn btn-secondary">High to Low</button>
+            <button className="btn btn-secondary">Low to High</button>
+          </div>
         </div>
       </div>
       <div>
+      
         <div id="banq">
         {Object.keys(this.state.banquets).map((key) => {
           return <div>
