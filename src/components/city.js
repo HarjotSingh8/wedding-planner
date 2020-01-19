@@ -37,28 +37,32 @@ state= {
   render() {
   return (
     <div>
-      
       <div>
-        <div className="d-flex flex-row bg-secondary text-white">
-          <div className="p-2 bg-secondary text-monospace">
-            Location
+        <div style={{left:'0px', width:'100%', marginLeft:'0px'}}className="row bg-secondary text-white">
+          {//<div class="col-xs-2 col-md-4 row" >
+          }
+          <div style={{float:'left', width:'400px', marginLeft:'0px'}} className="row">
+            <div className="p-2 bg-secondary text-monospace">
+              Location
+            </div>
+            <div class="searchdiv">
+              <input id="searchlocation" type="text" class="searchbar" placeholder="search location"/>
+            </div>
           </div>
-          <div class="searchdiv">
-            <input id="searchlocation" type="text" class="searchbar" placeholder="search location"/>
-          </div>
-          <div class="searchspacer"></div>
+          <div style={{float:'left', width:'400px', marginLeft:'0px'}} className="row">
           <div className="p-2 bg-secondary text-monospace">
             Name
           </div>
           <div class="searchdiv">
             <input id="searchname" type="text" class="searchbar" placeholder="search by name" onFocus={searchn("searchname")}/>
           </div>
-          <div class="searchspacer"></div>
-          <div class="searchspacer"></div>
+          </div>
+          <div style={{float:'left', width:'400px', marginLeft:'0px'}} className="row">
             <div className="p-2 bg-secondary text-monospace">Price:</div>
-          <div className="btn-grp">
-            <button className="btn btn-secondary">High to Low</button>
-            <button className="btn btn-secondary">Low to High</button>
+            <div className="btn-grp">
+              <button className="btn btn-secondary">High to Low</button>
+              <button className="btn btn-secondary">Low to High</button>
+            </div>
           </div>
         </div>
       </div>

@@ -2,9 +2,11 @@
     display: box; box-align: center;
     padding-top:5px;
 }
-
+.floatcontainer {
+    float:left
+}
 .searchspacer {
-    width:5%;
+    width:2rem;
 }
 .searchbar{
     display: box;

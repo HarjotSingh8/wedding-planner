@@ -9,15 +9,35 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Login from './Login';
 import Signup from './Signup';
+import SignOutButton from './Signout';
 
-export default class Navbar extends Component {
+import { withFirebase } from './Firebase';
+
+import  { FirebaseContext } from './Firebase';
+import Navigation from './Navigation';
+
+class Navbar extends Component {
+  state= {
+    authUser:null
+  }
+  constructor(props) {
+    super(props);
+    this.setState({authUser:null})
+  }
+  componentDidMount() {
+    this.props.firebase.auth.onAuthStateChanged(authUser => {
+      authUser
+        ? this.setState({ authUser })
+        : this.setState({ authUser: null });
+    });
+  }
   render() {
   return (
       <div>
         <div className="d-flex flex-row bg-dark text-white">  {/*Navbar*/}
-          <div className="p-2 bg-dark text-monospace">
+          <Link className="p-2 btn btn-dark text-monospaced" to="/">
             WEDDING PLANNER
-          </div>
+          </Link>
           <div className="btn-group mr-auto">
             <button type="button" className="btn btn-dark">Venues</button>
             <button type="button" className="btn btn-dark">Vendors</button>
@@ -33,28 +53,12 @@ export default class Navbar extends Component {
                 })}
               </div>
             </div>
-            
           </div>
-          
-            <div className="btn-group">
-              <button type="button" className="btn btn-dark" data-toggle="dropdown">LOGIN</button>
-              <div className="dropdown-menu dropdown-menu-right">
-                <div className="dropdown-item">
-                  <Login/>
-                </div>
-              </div>
-            </div>
-            <div className="btn-group">
-              <button type="button" className="btn btn-dark" data-toggle="dropdown">SIGNUP</button>
-              <div className="dropdown-menu dropdown-menu-right">
-                <div className="dropdown-item">
-                  <Signup/>
-                </div>
-              </div>
-            </div>
-          
+            <div><Navigation authUser={this.state.authUser} /></div>
         </div>
       </div>
   );
 }
 }
+
+export default withFirebase(Navbar);
