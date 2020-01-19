@@ -28,19 +28,15 @@ export default class Navbar extends Component {
                 <Link className="dropdown-item" to="all" >All Locations</Link>
                 {/*<Link className="dropdown-item" to="chandigarh">CHANDIGARH</Link>*/}
                 {this.props.cities.map((item, key) => {
-                  return <Link className="dropdown-item" to={`/city/${item}`}
-/*onNavigate={(event, callback) => {
-    fetch("https://wp-database-d7c6f.firebaseio.com//banquets/"+key+".json")
-      .then(res => res.json())
-      .then(res =>
-{console.log(res)
-	this.setState({banquets:res})
-        })
-  }}*/
->{item}</Link>
+                  return <Link className="dropdown-item" to={`/city/${item}`}>{item}</Link>
                 })}
               </div>
             </div>
+            
+          </div>
+          <div className="">
+            <button type="button" className="btn btn-light btn-outline-primary">LOGIN</button>
+            <button type="button" className="btn btn-light btn-outline-secondary">SIGNUP</button>
           </div>
         </div>
       </div>

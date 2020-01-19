@@ -37,6 +37,14 @@ state= {
   }
   render() {
   return (
+    <div>
+      <div>
+        <div className="d-flex flex-row bg-secondary text-white">
+          <div id="searchbar-div">
+            <input type="text" value="location" class="search location"/>
+          </div>
+        </div>
+      </div>
       <div>
         <div id="banq">
         {Object.keys(this.state.banquets).map((key) => {
@@ -63,6 +71,7 @@ state= {
         })}
         </div>
       </div>
+    </div>
   );
   
   }
