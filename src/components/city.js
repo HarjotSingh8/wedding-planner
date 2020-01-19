@@ -8,7 +8,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './mastercss.css';
-
+import Savebtn from './savebtn';
 function searchn(id) {
 
 }
@@ -21,7 +21,7 @@ state= {
   
   componentDidMount() {
     console.log("didmount called");
-    fetch("https://wp-database-d7c6f.firebaseio.com/banquets/"+this.props.city+".json")
+    fetch("https://wp-database-d7c6f.firebaseio.com/public/banquets/"+this.props.city+".json")
       .then(res => res.json())
       .then(res =>
 	
@@ -85,6 +85,7 @@ state= {
                     <p class="card-text">{ this.state.banquets[key].desc }</p>
                     <p class="card-text">{ this.state.banquets[key].address }</p>
                     <p class="card-text">Price : { this.state.banquets[key].price } per plate</p>
+                    <Savebtn />
                   </div>
                 </div>
               </div>

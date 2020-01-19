@@ -80,6 +80,7 @@ class SignUpFormBase extends Component {
           placeholder="Confirm Password"
         />
         <button disabled={isInvalid} type="submit">Sign Up</button>
+        <li onClick={this.authWithGoogle}>Login with Google</li>
         {error && <p>{error.message}</p>}
       </form>
     );

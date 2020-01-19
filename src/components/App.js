@@ -35,7 +35,7 @@ class App extends Component {
     });
     
     console.log("called ");
-    fetch("https://wp-database-d7c6f.firebaseio.com/cities.json")
+    fetch("https://wp-database-d7c6f.firebaseio.com/public/cities.json")
       .then(res => res.json())
       .then(res =>
 	
