@@ -41,5 +41,16 @@
   },
   "devDependencies": {
     "gh-pages": "^2.2.0"
+  },
+  "description": "https://harjotsingh8.github.io/wedding-planner/ <br />\r This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarjotSingh8/wedding-planner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarjotSingh8/wedding-planner/issues"
   }
 }

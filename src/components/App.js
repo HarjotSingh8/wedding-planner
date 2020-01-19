@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Navbar from './navbar.js'
+import Navbar from './Navbar.js'
 import All from './all.js'
 import City from './city.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
