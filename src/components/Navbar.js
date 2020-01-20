@@ -18,7 +18,8 @@ import Navigation from './Navigation';
 
 class Navbar extends Component {
   state= {
-    authUser:null
+    cities:{},
+    authUserState:null
   }
   constructor(props) {
     super(props);
@@ -27,9 +28,12 @@ class Navbar extends Component {
   componentDidMount() {
     this.props.firebase.auth.onAuthStateChanged(authUser => {
       authUser
-        ? this.setState({ authUser })
-        : this.setState({ authUser: null });
+        ? this.setState({ authUserState:authUser })
+        : this.setState({ authUserState: null });
     });
+    fetch("https://wp-database-d7c6f.firebaseio.com/public/cities.json")
+      .then(res => res.json())
+      .then(res => this.setState({cities:res}))
   }
   render() {
   return (
@@ -41,20 +45,9 @@ class Navbar extends Component {
           <div className="btn-group mr-auto">
             <button type="button" className="btn btn-dark">Venues</button>
             <button type="button" className="btn btn-dark">Vendors</button>
-            <div className="btn-group">
-              <button type="button" className="btn btn-dark dropdown-toggle" data-toggle="dropdown">
-                BANQUETS
-              </button>
-              <div id="location-dropdown" className="dropdown-menu">
-                <Link className="dropdown-item" to="all" >All Locations</Link>
-                {/*<Link className="dropdown-item" to="chandigarh">CHANDIGARH</Link>*/}
-                {this.props.cities.map((item, key) => {
-                  return <Link className="dropdown-item" to={`/city/${item}`}>{item}</Link>
-                })}
-              </div>
-            </div>
+            <Link  className="btn btn-dark" to='/banquets'>BANQUETS</Link>
           </div>
-            <div><Navigation authUser={this.state.authUser} /></div>
+            <div><Navigation authUser={this.state.authUserState} /></div>
         </div>
       </div>
   );

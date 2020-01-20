@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useLocation
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -11,13 +12,44 @@ import './mastercss.css';
 import { withFirebase } from './Firebase';
 import Savebtn from './savebtn';
 import Navigation from './Navigation.js';
+import { AuthUserContext } from './Session';
 
 import  { FirebaseContext } from './Firebase';
-function searchn(id) {
+function searchn() {
 
 }
 
-class Banquets extends Component {
+function Banquets() {
+    let query = new URLSearchParams(useLocation().search);
+    let city=query.get("city");
+    let page=query.get("page");
+    if(city!=null) {
+        if(page==null) {
+            page=1;
+        }
+        return(<ShowBanquets city={city} page={page} />)
+    }
+    else {
+        return(<SelectBanquetCity />)
+    }
+    return(
+        <div>{city}</div>
+    );
+}
+    
+
+
+class SelectBanquetCity extends Component {
+    render() {
+        return (
+            <div>
+                Select City
+            </div>
+        )
+    }
+}
+
+class ShowBanquets extends Component {
 state= {
   banquets:{},
   arr:{},
@@ -27,18 +59,14 @@ state= {
     super(props);
   }
   componentDidMount() {
-    this.props.firebase.auth.onAuthStateChanged(authUser => {
+    /*this.props.firebase.auth.onAuthStateChanged(authUser => {
       authUser ? this.setState({ auth:authUser }) : this.setState({ auth: null });
       //authUser ? document.getElementsByClassName("save").style.visibility = "visible" : document.getElementsByClassName("save").style.visibility = "hidden";
-    });
-    const { handle } = this.props.match.params
-    const { handle1 } = this.props.match.params
-    if(handle1==null) {
-        handle1="page1"
-    }
-    console.log("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+handle+"/"+handle1+".json")
+    });*/
+    
+    console.log("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/"+"page1"+".json")
     console.log("didmount called");
-    fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+handle+"/"+handle1+".json")
+    fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/"+"page1"+".json")
       .then(res => res.json())
       .then(res =>
         {console.log(res)

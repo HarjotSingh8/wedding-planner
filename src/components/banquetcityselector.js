@@ -21,10 +21,19 @@ class BanquetCitySelector extends Component {
 state= {
   banquets:{},
   arr:{},
-  auth:null
+  auth:null,
+  city:null,
+  pageno:null
   }
   constructor(props) {
     super(props);
+  }
+  componentWillMount() {
+    const { handle } = this.props.match.params
+    const { handle1 } = this.props.match.params
+    this.setState({city:handle})
+    this.setState({pageno:handle1})
+    console.log("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+handle+"/page1.json")
   }
   componentDidMount() {
     this.props.firebase.auth.onAuthStateChanged(authUser => {
@@ -32,6 +41,9 @@ state= {
       //authUser ? document.getElementsByClassName("save").style.visibility = "visible" : document.getElementsByClassName("save").style.visibility = "hidden";
     });
     const { handle } = this.props.match.params
+    const { handle1 } = this.props.match.params
+    this.setState({city:handle})
+    this.setState({pageno:handle1})
     console.log("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+handle+"/page1.json")
     console.log("didmount called");
     fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+handle+"/page1.json")
@@ -40,13 +52,9 @@ state= {
         {console.log(res)
           this.setState({banquets:res})
         });
-        /*var arr={}
-        for(var key in this.state.banquets) {
-          arr[this.state.banquets[key].name]=key
-        }
-        this.setState({arr:arr})*/
   }
   render() {
+      if(this.state.handle1!=undefined)
   return (
     <div>
         city selector
@@ -110,7 +118,9 @@ state= {
       </div>
     </div>
   );
-  
+  return(
+      <div>no city selected</div>
+  )
   }
 }
 export default withFirebase(BanquetCitySelector)

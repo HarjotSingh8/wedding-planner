@@ -5,14 +5,16 @@ import * as ROUTES from './routes';
 import Login from './Login';
 import Signup from './Signup';
 
-const Navigation = ({ authUser }) => (
+const Navigation = ({authUser}) => (
   <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
 );
 const NavigationAuth = () => (
-      <SignOutButton />
+  <div>
+    <SignOutButton />
+   </div>
 );
 const NavigationNonAuth = () => (
-    <div>
+    <div className="btn-group">
     <div className="btn-group">
         <button type="button" className="btn btn-dark" data-toggle="dropdown">LOGIN</button>
             <div className="dropdown-menu dropdown-menu-right">
