@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "afc9d16317a483a7665ce7a8a8ee82c2",
+    "revision": "a2a43e6cb1a47e38fefdb2dd8dc5d91d",
     "url": "/wedding-planner/index.html"
   },
   {
-    "revision": "fbe4ca2f7ec48ef8f2b5",
+    "revision": "fd6fe396c8c4bff50563",
     "url": "/wedding-planner/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "53c3752797457e11ce31",
+    "revision": "310a908b7f0caf66e838",
     "url": "/wedding-planner/static/css/main.5d8d06cd.chunk.css"
   },
   {
-    "revision": "fbe4ca2f7ec48ef8f2b5",
-    "url": "/wedding-planner/static/js/2.2dadaf2f.chunk.js"
+    "revision": "fd6fe396c8c4bff50563",
+    "url": "/wedding-planner/static/js/2.29013d4e.chunk.js"
   },
   {
     "revision": "a6fd81dd9815e74d45054f8213a09ce3",
-    "url": "/wedding-planner/static/js/2.2dadaf2f.chunk.js.LICENSE"
+    "url": "/wedding-planner/static/js/2.29013d4e.chunk.js.LICENSE"
   },
   {
-    "revision": "53c3752797457e11ce31",
-    "url": "/wedding-planner/static/js/main.4bd33328.chunk.js"
+    "revision": "310a908b7f0caf66e838",
+    "url": "/wedding-planner/static/js/main.7ddda922.chunk.js"
   },
   {
     "revision": "996cd61e83090c606897",
