@@ -8,31 +8,42 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './mastercss.css';
+import { withFirebase } from './Firebase';
 import Savebtn from './savebtn';
+import Navigation from './Navigation.js';
+
+import  { FirebaseContext } from './Firebase';
 function searchn(id) {
 
 }
 
-export default class City extends Component {
+class City extends Component {
 state= {
   banquets:{},
-  arr:{}
+  arr:{},
+  auth:null
   }
-  
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
+    this.props.firebase.auth.onAuthStateChanged(authUser => {
+      authUser ? this.setState({ auth:authUser }) : this.setState({ auth: null });
+      //authUser ? document.getElementsByClassName("save").style.visibility = "visible" : document.getElementsByClassName("save").style.visibility = "hidden";
+    });
+
     console.log("didmount called");
-    fetch("https://wp-database-d7c6f.firebaseio.com/public/banquets/"+this.props.city+".json")
+    fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/page"+this.props.pageno.toString()+".json")
       .then(res => res.json())
       .then(res =>
-	
-{console.log(res)
-	this.setState({banquets:res})
+        {console.log(res)
+          this.setState({banquets:res})
         });
-        var arr={}
+        /*var arr={}
         for(var key in this.state.banquets) {
           arr[this.state.banquets[key].name]=key
         }
-        this.setState({arr:arr})
+        this.setState({arr:arr})*/
   }
   render() {
   return (
@@ -85,7 +96,8 @@ state= {
                     <p class="card-text">{ this.state.banquets[key].desc }</p>
                     <p class="card-text">{ this.state.banquets[key].address }</p>
                     <p class="card-text">Price : { this.state.banquets[key].price } per plate</p>
-                    <Savebtn />
+                    <Savebtn authUser={this.state.auth} id={key}/>
+                    
                   </div>
                 </div>
               </div>
@@ -99,3 +111,4 @@ state= {
   
   }
 }
+export default withFirebase(City)

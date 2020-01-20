@@ -5,13 +5,17 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+import { withFirebase } from './Firebase';
+
 import Navbar from './Navbar.js'
 import All from './all.js'
 import City from './city.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navigation from './Navigation'
-import { withFirebase } from './Firebase';
+import Banquets from'./Banquets'
+import BanquetCitySelector from './banquetcityselector'
 
 class App extends Component {
   state= {
@@ -27,7 +31,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.listener = this.props.firebase.auth.onAuthStateChanged(
+    this.props.firebase.auth.onAuthStateChanged(
       authUser => {
       authUser
         ? this.setState({ authUser })
@@ -44,18 +48,20 @@ class App extends Component {
         }
       );
   }
-  componentWillUnmount() {
-    this.listener();
-  }
   render() {
   return (
     <Router>
       <div>
+      <Navigation authUser={this.state.authUser} />
       <Navbar cities={this.state.cities}/>
       <Switch>
         {this.state.cities.map((item, index) => (
-          <Route path={`/city/${item}`}><City city={item}/></Route>
+          <Route path={`/city/${item}`}><City city={item} pageno={1}/></Route>
+          
+          
         ))}
+        <Route path='/banquets/:handle/' component={BanquetCitySelector} />
+        <Route path='/banquets/:handle/:handle1' component={Banquets} />
         <Route path="/all"><All banquets={this.state.cities}/></Route>
         <Route path="/about"><About /></Route>
         <Route exactpath="/"><Home /></Route>

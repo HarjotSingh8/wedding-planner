@@ -27,6 +27,7 @@ const NavigationNonAuth = () => (
     <div className="dropdown-menu dropdown-menu-right">
       <div className="dropdown-item">
         <Signup/>
+        <button className="save">save</button>
       </div>
     </div>
   </div>
