@@ -44,7 +44,7 @@ class Navbar extends Component {
           </Link>
           <div className="btn-group mr-auto">
             <button type="button" className="btn btn-dark">Venues</button>
-            <button type="button" className="btn btn-dark">Vendors</button>
+            <Link className="btn btn-dark" to='/vendors'>VENDORS</Link>
             <Link  className="btn btn-dark" to='/banquets'>BANQUETS</Link>
           </div>
             <div><Navigation authUser={this.state.authUserState} /></div>

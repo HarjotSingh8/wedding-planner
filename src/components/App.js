@@ -19,7 +19,7 @@ import Navigation from './Navigation'
 import Banquets from'./Banquets'
 import BanquetCitySelector from './banquetcityselector'
 import Nextpage from './Nextpage'
-
+import Home from './Home'
 
 const App1 =() => (
 <Router basname='/'>
@@ -83,9 +83,7 @@ class App extends Component {
   );}
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
+
 function About() {
   return <h2>About</h2>;
 }
