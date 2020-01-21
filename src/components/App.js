@@ -3,7 +3,8 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  withRouter
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -17,21 +18,23 @@ import City from './city.js';
 import Navigation from './Navigation'
 import Banquets from'./Banquets'
 import BanquetCitySelector from './banquetcityselector'
+import Nextpage from './Nextpage'
 
 
-const App =() => (
+const App1 =() => (
 <Router basname='/'>
       <div>
       <Navbar/>
       <Switch>
-        <Route path='/banquets/' component={Banquets} />
+        <Route path='/banquets' component={Banquets} />
+        <Route path='/Nextpage' component={Nextpage} />
         <Route path="/about"><About /></Route>
         <Route exactpath="/"><Home /></Route>
       </Switch>
       </div>
     </Router>)
 
-class App1 extends Component {
+class App extends Component {
   state= {
     cities : [],
     authUser:null
@@ -60,15 +63,17 @@ class App1 extends Component {
   }
   render() {
   return (
-    <Router basname='/'>
+    <Router basename='/'>
       <div>
       <Navbar cities={this.state.cities}/>
       <Switch>
         {this.state.cities.map((item, index) => (
           <Route path={`/city/${item}`}><City city={item} pageno={1}/></Route>
         ))}
-        <Route path='/banquets/' component={Banquets} />
-        <Route path='/banques/:handle/:handle1' component={BanquetCitySelector} />
+        <Route path="/banquets/:c?/:p?" render={(props) => (
+          <Banquets key={props.match.params.city} {...props} />)
+        } />
+        <Route path='/banques/' component={Banquets} />
         <Route path="/all"><All banquets={this.state.cities}/></Route>
         <Route path="/about"><About /></Route>
         <Route exactpath="/"><Home /></Route>
@@ -81,11 +86,8 @@ class App1 extends Component {
 function Home() {
   return <h2>Home</h2>;
 }
-
-
-
 function About() {
   return <h2>About</h2>;
 }
 
-export default withAuthentication(App);
+export default  withAuthentication(App);
