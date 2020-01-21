@@ -6,9 +6,9 @@ const Savebtn = ({ authUser, id }) => (
   <div>{authUser ? <NavigationAuth id={id} /> : <NavigationNonAuth />}</div>
 );
 const NavigationAuth = ({id}) => (
-  <div>
-      <button value={id} className="btn btn-secondary" style={{position:'absolute', right:'0px', bottom:'0px'}}>Save</button>
-      <button value={id} className="btn btn-secondary" style={{position:'absolute', right:'0px', bottom:'0px'}}>Remove</button>
+  <div style={{position:'absolute', right:'0px', bottom:'0px'}}>
+      <button value={id} className="btn btn-secondary" >Save</button>
+      <button value={id} className="btn btn-secondary" >Remove</button>
   </div>
 );
 const NavigationNonAuth = () => (

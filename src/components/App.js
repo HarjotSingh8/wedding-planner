@@ -42,7 +42,9 @@ class App extends Component {
   constructor(props) {
     super(props);
   }
+  componentDidUpdate() {
 
+  }
   componentDidMount() {
     this.props.firebase.auth.onAuthStateChanged(
       authUser => {
@@ -52,14 +54,7 @@ class App extends Component {
     });
     
     console.log("called ");
-    fetch("https://wp-database-d7c6f.firebaseio.com/public/cities.json")
-      .then(res => res.json())
-      .then(res =>
-	
-{console.log(res)
-	this.setState({cities:res})
-        }
-      );
+    
   }
   render() {
   return (
@@ -67,9 +62,9 @@ class App extends Component {
       <div>
       <Navbar cities={this.state.cities}/>
       <Switch>
-        {this.state.cities.map((item, index) => (
+        {/*this.state.cities.map((item, index) => (
           <Route path={`/city/${item}`}><City city={item} pageno={1}/></Route>
-        ))}
+        ))*/}
         <Route path="/banquets/:c?/:p?" render={(props) => (
           <Banquets key={props.match.params.city} {...props} />)
         } />

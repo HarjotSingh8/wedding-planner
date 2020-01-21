@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SignOutButton from './Signout';
 import * as ROUTES from './routes';
 import Login from './Login';
 import Signup from './Signup';
+import Firebase from './Firebase'
+import NavigationAuth from './NavigationAuth'
+const Navigation = ({authUser, username}) => (
+  <div>{authUser ? <NavigationAuth authUser={authUser} username={username}/> : <NavigationNonAuth />}</div>
+);
 
-const Navigation = ({authUser}) => (
-  <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
-);
-const NavigationAuth = () => (
-  <div>
-    <SignOutButton />
-   </div>
-);
 const NavigationNonAuth = () => (
     <div className="btn-group">
     <div className="btn-group">
@@ -35,4 +32,5 @@ const NavigationNonAuth = () => (
   </div>
   </div>
 );
+
 export default Navigation;

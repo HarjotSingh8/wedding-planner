@@ -36,10 +36,10 @@ class ShowBanquets extends Component {
         }
     }
     componentDidMount() {
-        /*this.props.firebase.auth.onAuthStateChanged(authUser => {
+        this.props.firebase.auth.onAuthStateChanged(authUser => {
             authUser ? this.setState({ auth:authUser }) : this.setState({ auth: null });
             //authUser ? document.getElementsByClassName("save").style.visibility = "visible" : document.getElementsByClassName("save").style.visibility = "hidden";
-        });*/
+        });
         this.setState({page:this.props.page})
         console.log("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/"+"page1"+".json")
         console.log("didmount called");
@@ -110,9 +110,8 @@ class ShowBanquets extends Component {
                             </div>
                         })}
                     </div>
-                    <div>
-                        <Link to={"/banquets/"+this.props.city+"/"+(parseInt(this.props.page,10)+1)}>next</Link>
-                        
+                    <div class="row mb-2 mt-2  d-flex justify-content-center">
+                        <Link class="btn btn-primary" to={"/banquets/"+this.props.city+"/"+(parseInt(this.props.page,10)+1)}>next</Link>
                     </div>
                 </div>
             </div>
