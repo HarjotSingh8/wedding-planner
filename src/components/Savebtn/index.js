@@ -19,6 +19,6 @@ class Savebtn extends Component {
 
 
 const WithoutAuth = () => (
-    <button className="btn btn-secondary disabled" style={{position:'absolute', right:'0px', bottom:'0px'}}>Login to Save</button>
+    <button className="btn btn-light disabled" style={{position:'absolute', right:'0px', bottom:'0px'}}>Login to Save</button>
 );
 export default Savebtn;

@@ -6,10 +6,9 @@ import {
 import { withFirebase } from "./Firebase";
 import Savebtn from './Savebtn';
 import history from './history';
-import CityCover from './citycover'
 function searchn() {}
 
-class ShowBanquets extends Component {
+class ShowVendors extends Component {
     state= {
         banquets:{},
         arr:{},
@@ -52,19 +51,48 @@ class ShowBanquets extends Component {
     render() {
         return (
             <div>
-                <CityCover city={this.props.city} />
-                <div class="md-form active-pink-4 mt-0 mx-5">
-                    <input class="form-control" type="text" placeholder="Search" aria-label="Search" style={{borderTop:'0px', borderLeft:'0px', borderRight:'0px', borderColor:'pink'}}/>
+                <div>
+                    <div style={{left:'0px', width:'100%', marginLeft:'0px'}}className="row bg-secondary text-white">
+                        {//<div class="col-xs-2 col-md-4 row" >
+                        }
+                        <div style={{float:'left', width:'400px', marginLeft:'0px'}} className="row">
+                            <div className="p-2 bg-secondary text-monospace">
+                                Location
+                            </div>
+                            <div class="searchdiv">
+                                <input id="searchlocation" type="text" class="searchbar" placeholder="search location"/>
+                            </div>
+                        </div>
+                        <div style={{float:'left', width:'400px', marginLeft:'0px'}} className="row">
+                            <div className="p-2 bg-secondary text-monospace">
+                                Name
+                            </div>
+                            <div class="searchdiv">
+                            <input id="searchname" type="text" class="searchbar" placeholder="search by name" onFocus={searchn("searchname")}/>
+                            </div>
+                        </div>
+                        <div style={{float:'left', width:'400px', marginLeft:'0px'}} className="row">
+                            <div className="p-2 bg-secondary text-monospace">
+                                Price:
+                            </div>
+                            <div className="btn-grp">
+                                <button className="btn btn-secondary">High to Low</button>
+                                <button className="btn btn-secondary">Low to High</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             <div>
-                <div id="banq" class="container-fluid row justify-content-center">
+                <div id="banq">
                     {Object.keys(this.state.banquets).map((key) => {
-                        return <div class="col-sm-12 col-xl-6 h-100 my-3">
-                                <div class="card text-dark bg-light shadow" style={{border:'0px'}}>
-                                    <div class="row d-flex no-gutters">
-                                        <div class="col-sm-12 col-md-4" style={{backgroundImage:"url('"+this.state.banquets[key].image+"')", backgroundSize:'cover', minHeight:'271px'}}></div>
-                                        <div class="col-sm-12 col-md-8" style={{height:'271px'}}>
-                                            <div class="card-header bg-light" style={{borderColor:'pink'}}>
+                        return <div>
+                                <div class="card text-white bg-dark mt-3 ml-3 mr-3">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-4 overflow-hidden">
+                                            <img src={this.state.banquets[key].image}></img>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-header">
                                                 <h4>{ this.state.banquets[key].name }</h4>
                                             </div>
                                             <div class="card-body">
@@ -79,8 +107,8 @@ class ShowBanquets extends Component {
                             </div>
                         })}
                     </div>
-                    <div class="row mb-2 mt-2  d-flex justify-content-center" style={{width:'100%'}}>
-                        <Link class="btn btn-primary" to={"/banquets/"+this.props.city+"/"+(parseInt(this.props.page,10)+1)} >next</Link>
+                    <div class="row mb-2 mt-2  d-flex justify-content-center">
+                        <Link class="btn btn-primary" to={"/banquets/"+this.props.city+"/"+(parseInt(this.props.page,10)+1)}>next</Link>
                     </div>
                 </div>
             </div>
@@ -88,4 +116,4 @@ class ShowBanquets extends Component {
     }
 }
 
-export default withRouter(withFirebase(ShowBanquets))
+export default withRouter(withFirebase(ShowVendors))

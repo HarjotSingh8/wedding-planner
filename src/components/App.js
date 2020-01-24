@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Vendors from './Vendors'
 
 import { withFirebase } from './Firebase';
 import { withAuthentication } from './Session';
@@ -47,6 +48,7 @@ class App extends Component {
     console.log("update app.js"+this.state.authUser)
   }
   componentDidMount() {
+    this.props.firebase.storage.ref('/cities/agraCompressed.jpg')
     this.props.firebase.auth.onAuthStateChanged(
       authUser => {
       if(authUser!=null && authUser!=this.state.authUser)
@@ -69,11 +71,14 @@ class App extends Component {
         <Route path="/banquets/:c?/:p?" render={(props) => (
           <Banquets authUser={this.state.authUser} {...props} />)
         } />
+        <Route path="/vendors/:c?/:p?" render={(props) => (
+          <Vendors authUser={this.state.authUser} {...props} />)
+        } />
         <Route path="/userData" render={(props) => (
           <UserData authUser={this.state.authUser} {...props} />)
         } />
         {/*<Route path='/userData'><UserData authUser={this.state.authUser}/></Route>*/}
-        <Route path='/banques/' component={Banquets} />
+        
         <Route path="/all"><All banquets={this.state.cities}/></Route>
         <Route path="/about"><About /></Route>
         <Route exactpath="/"><Home /></Route>

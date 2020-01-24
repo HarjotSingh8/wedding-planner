@@ -23,7 +23,7 @@ class WithAuth extends Component {
     render() {
         return (
     <div style={{position:'absolute', right:'0px', bottom:'0px'}}>
-        <button value={this.props.id} className="btn btn-secondary" onClick={this.saveToUser}>Save</button>
+        <button value={this.props.id} className="btn btn-outline-danger " onClick={this.saveToUser}>Save</button>
         {/*<button value={this.props.id} className="btn btn-secondary" onClick={this.removeFromUser}>Remove</button>*/}
     </div>)
     }

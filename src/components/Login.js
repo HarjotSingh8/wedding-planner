@@ -4,8 +4,8 @@ import { SignUpLink } from './Signup';
 import { withFirebase } from './Firebase';
 import * as ROUTES from './routes';
 const Login = () => (
-  <div>
-    <h1>SignIn</h1>
+  <div class="row justify-content-center bg-white p-5">
+    <p class="display-3">Sign In</p>
     <SignInForm />
     <SignUpLink />
   </div>
@@ -41,8 +41,10 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
     return (
       <form onSubmit={this.onSubmit}>
+        <div class="row justify-content-center bg-white">
         <input
           name="email"
+          class="col-12 my-2"
           value={email}
           onChange={this.onChange}
           type="text"
@@ -50,15 +52,17 @@ class SignInFormBase extends Component {
         />
         <input
           name="password"
+          class="col-12 my-2"
           value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button  class="btn btn-primary col-12 my-2" disabled={isInvalid} type="submit">
           Sign In
         </button>
         {error && <p>{error.message}</p>}
+        </div>
       </form>
     );
   }

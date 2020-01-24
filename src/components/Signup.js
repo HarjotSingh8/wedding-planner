@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { withFirebase } from './Firebase';
 import * as ROUTES from './routes';
 const Signup = () => (
-  <div>
-    <h1>SignUp</h1>
+  <div class="row justify-content-center bg-white p-5">
+    <p class="display-3">Sign Up</p>
     <SignUpForm />
   </div>
 );
@@ -60,37 +60,47 @@ class SignUpFormBase extends Component {
       username === '';
     return (
       <form onSubmit={this.onSubmit}>
+        <div class="row justify-content-center bg-white">
         <input
           name="username"
+          class="col-12 my-2"
           value={username}
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
+          style={{borderTop:'0px', borderLeft:'0px',borderRight:'0px', borderColor:'pink'}}
         />
         <input
           name="email"
+          class="col-12 my-2"
           value={email}
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
+          style={{borderTop:'0px', borderLeft:'0px',borderRight:'0px', borderColor:'pink'}}
         />
         <input
           name="passwordOne"
+          class="col-12 my-2"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
+          style={{borderTop:'0px', borderLeft:'0px',borderRight:'0px', borderColor:'pink'}}
         />
         <input
           name="passwordTwo"
+          class="col-12 my-2"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
+          style={{borderTop:'0px', borderLeft:'0px',borderRight:'0px', borderColor:'pink'}}
         />
-        <button disabled={isInvalid} type="submit">Sign Up</button>
-        <li onClick={this.authWithGoogle}>Login with Google</li>
+        <button class="btn btn-primary col-12 my-2" disabled={isInvalid} type="submit">Sign Up</button>
+        <button class="btn col-12 my-2 btn-primary" onClick={this.authWithGoogle}>Login with Google</button>
         {error && <p>{error.message}</p>}
+        </div>
       </form>
     );
   }

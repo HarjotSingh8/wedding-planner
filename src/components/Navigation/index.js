@@ -23,10 +23,9 @@ const NavigationNonAuth = () => (
     </div>
     <div className="btn-group">
     <button type="button" className="btn btn-dark" data-toggle="dropdown">SIGNUP</button>
-    <div className="dropdown-menu dropdown-menu-right">
+    <div className="dropdown-menu dropdown-menu-right p-0">
       <div className="dropdown-item">
         <Signup/>
-        <button className="save">save</button>
       </div>
     </div>
   </div>
