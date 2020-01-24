@@ -10,6 +10,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Login from './Login';
 import Signup from './Signup';
 import SignOutButton from './Signout';
+import logo from './logo.png'
 
 import { withFirebase } from './Firebase';
 
@@ -71,11 +72,6 @@ class Navbar extends Component {
         console.log("user="+this.state.authUserState.uid)
         console.log("user"+this.props.firebase.auth.currentUser.profile)
         this.updateUsername()
-        //console.log("username="+this.props.firebase.user(this.state.authUserState.uid).get('username'))
-        /*console.log("username="+this.props.firebase.ref('/users/' + this.state.authUserState.uid).once('value').then(function(snapshot) {
-          var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';  
-        }))*/
-        
     });
     
     fetch("https://wp-database-d7c6f.firebaseio.com/public/cities.json")
@@ -86,15 +82,19 @@ class Navbar extends Component {
   return (
       <div>
         <div className="d-flex flex-row bg-dark text-white">  {/*Navbar*/}
-          <Link className="p-2 btn btn-dark text-monospaced" to="/">
-            WEDDING PLANNER
+          <Link className="btn btn-dark text-monospaced justify-content-center" to="/">
+          <div className="justify-content-center" style={{height:'100%'}}>
+            <b>WEDDING PLANNER</b>
+            </div>
           </Link>
-          <div className="btn-group mr-auto">
-            <button type="button" className="btn btn-dark">Venues</button>
+          <div className="d-flex align-items-end flex-grow-1 flex-wrap" >
+          <div className="btn-group" style={{width:'300px', height:'42px', marginRight:'1px'}}>
+            <Link className="btn btn-dark" to='/venues'>Venues</Link>
             <Link className="btn btn-dark" to='/vendors'>VENDORS</Link>
-            <Link  className="btn btn-dark" to='/banquets'>BANQUETS</Link>
+            <Link className="btn btn-dark" to='/banquets'>BANQUETS</Link>
           </div>
-            <div><Navigation authUser={this.state.authUserState} username={this.state.usern} /></div>
+            <div className="ml-auto"><Navigation authUser={this.state.authUserState} username={this.state.usern} /></div>
+            </div>
         </div>
       </div>
   );

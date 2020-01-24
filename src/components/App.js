@@ -20,9 +20,10 @@ import Banquets from'./Banquets'
 import BanquetCitySelector from './banquetcityselector'
 import Nextpage from './Nextpage'
 import Home from './Home'
+import UserData from './UserData'
 
 const App1 =() => (
-<Router basname='/'>
+<Router basename='/'>
       <div>
       <Navbar/>
       <Switch>
@@ -36,38 +37,41 @@ const App1 =() => (
 
 class App extends Component {
   state= {
-    cities : [],
     authUser:null
   }
   constructor(props) {
     super(props);
   }
   componentDidUpdate() {
-
+    console.log("update app.js"+this.state.authUser)
   }
   componentDidMount() {
     this.props.firebase.auth.onAuthStateChanged(
       authUser => {
-      authUser
-        ? this.setState({ authUser })
+      if(authUser!=null && authUser!=this.state.authUser)
+        authUser
+        ? this.setState({ authUser:authUser })
         : this.setState({ authUser: null });
     });
-    
-    console.log("called ");
+    console.log("userauth changed ");
     
   }
   render() {
   return (
     <Router basename='/'>
       <div>
-      <Navbar cities={this.state.cities}/>
+      <Navbar cities={this.state.cities} authUser={this.state.authUser}/>
       <Switch>
         {/*this.state.cities.map((item, index) => (
           <Route path={`/city/${item}`}><City city={item} pageno={1}/></Route>
         ))*/}
         <Route path="/banquets/:c?/:p?" render={(props) => (
-          <Banquets key={props.match.params.city} {...props} />)
+          <Banquets authUser={this.state.authUser} {...props} />)
         } />
+        <Route path="/userData" render={(props) => (
+          <UserData authUser={this.state.authUser} {...props} />)
+        } />
+        {/*<Route path='/userData'><UserData authUser={this.state.authUser}/></Route>*/}
         <Route path='/banques/' component={Banquets} />
         <Route path="/all"><All banquets={this.state.cities}/></Route>
         <Route path="/about"><About /></Route>

@@ -9,8 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './mastercss.css';
 import { withFirebase } from './Firebase';
-import Savebtn from './savebtn';
-import Navigation from './Navigation.js';
+import Savebtn from './Savebtn';
 
 import  { FirebaseContext } from './Firebase';
 function searchn(id) {

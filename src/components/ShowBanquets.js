@@ -4,7 +4,7 @@ import {
     Link
 } from "react-router-dom";
 import { withFirebase } from "./Firebase";
-import Savebtn from './savebtn';
+import Savebtn from './Savebtn';
 import history from './history';
 
 function searchn() {}
@@ -21,11 +21,9 @@ class ShowBanquets extends Component {
         super(props);
     }
     componentWillUpdate() {
-
-        console.log("updated component2 "+this.state.page+" "+this.props.page)
+        //console.log("uauth="+this.state.auth)
         if(this.state.page!=this.props.page) {
             //this.setState({page:this.props.page})
-            console.log("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/"+"page1"+".json")
             console.log("didmount called");
             fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/"+"page"+this.props.page+".json")
             .then(res => res.json())

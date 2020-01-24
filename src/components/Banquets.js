@@ -35,7 +35,7 @@ class Banquets extends React.Component {
     render() {
         if(this.props.match.params.c!=undefined)
         return (
-            <ShowBanquets city={this.props.match.params.c} page={this.props.match.params.p} key={this.props.key}/>
+            <ShowBanquets city={this.props.match.params.c} page={this.props.match.params.p} key={this.props.key} authUser={this.props.authUser}/>
         );
         return (
             <SelectBanquetCity />

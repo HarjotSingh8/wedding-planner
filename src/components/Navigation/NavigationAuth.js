@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Firebase from './Firebase'
-import { withFirebase } from "./Firebase";
-import SignOutButton from './Signout'
+import Firebase from '../Firebase'
+import { withFirebase } from "../Firebase";
+import SignOutButton from '../Signout'
 import {Link} from 'react-router-dom'
 
 class NavigationAuth extends Component {
@@ -10,8 +10,8 @@ class NavigationAuth extends Component {
     }
     render() {
       return (
-        <div>
-            <Link className="btn btn-dark" to='/vendors'>{this.props.username}</Link>
+        <div style={{height:'42px', float:'right'}}>
+            <Link className="btn btn-dark" to='/userData'>{this.props.username}</Link>
             <SignOutButton />
         </div>
       );
