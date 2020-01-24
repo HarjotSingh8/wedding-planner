@@ -64,6 +64,7 @@ class App extends Component {
     <Router basename='/'>
       <div>
       <Navbar cities={this.state.cities} authUser={this.state.authUser}/>
+      <div>
       <Switch>
         {/*this.state.cities.map((item, index) => (
           <Route path={`/city/${item}`}><City city={item} pageno={1}/></Route>
@@ -71,7 +72,7 @@ class App extends Component {
         <Route path="/banquets/:c?/:p?" render={(props) => (
           <Banquets authUser={this.state.authUser} {...props} />)
         } />
-        <Route path="/vendors/:c?/:p?" render={(props) => (
+        <Route path="/vendors/:v?/:c?/:p?" render={(props) => (
           <Vendors authUser={this.state.authUser} {...props} />)
         } />
         <Route path="/userData" render={(props) => (
@@ -83,6 +84,7 @@ class App extends Component {
         <Route path="/about"><About /></Route>
         <Route exactpath="/"><Home /></Route>
       </Switch>
+      </div>
       <Footer/>
       </div>
     </Router>

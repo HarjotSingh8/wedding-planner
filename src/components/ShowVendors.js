@@ -24,7 +24,7 @@ class ShowVendors extends Component {
         if(this.state.page!=this.props.page) {
             //this.setState({page:this.props.page})
             console.log("didmount called");
-            fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/"+"page"+this.props.page+".json")
+            fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/"+this.props.vendor+"/"+this.props.city+"/"+"page"+this.props.page+".json")
             .then(res => res.json())
             .then(res => {
                 console.log(res)
@@ -38,10 +38,10 @@ class ShowVendors extends Component {
             //authUser ? document.getElementsByClassName("save").style.visibility = "visible" : document.getElementsByClassName("save").style.visibility = "hidden";
         });
         this.setState({page:this.props.page})
-        console.log("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/"+"page1"+".json")
+        console.log("https://wp-database-d7c6f.firebaseio.com/public/weddingz/"+this.props.vendor+"/"+this.props.city+"/"+"page1"+".json")
         console.log("didmount called");
         //this.setState({next:"/banquet/?city="+this.props.city+"&page="+this.props.page+1})
-        fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/banquets/"+this.props.city+"/"+"page"+this.props.page+".json")
+        fetch("https://wp-database-d7c6f.firebaseio.com/public/weddingz/"+this.props.vendor+"/"+this.props.city+"/"+"page"+this.props.page+".json")
         .then(res => res.json())
         .then(res => {
             console.log(res)
@@ -98,7 +98,7 @@ class ShowVendors extends Component {
                                             <div class="card-body">
                                                 <p class="card-text">{ this.state.banquets[key].desc }</p>
                                                 <p class="card-text">{ this.state.banquets[key].address }</p>
-                                                <p class="card-text">Price : { this.state.banquets[key].price } per plate</p>
+                                                <p class="card-text">Price : { this.state.banquets[key].price }</p>
                                                 <Savebtn authUser={this.state.auth} id={key}/>
                                             </div>
                                         </div>

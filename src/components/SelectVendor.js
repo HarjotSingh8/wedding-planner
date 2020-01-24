@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import CityImg from './cityimg';
-class SelectBanquetCity extends Component {
+class SelectVendor extends Component {
     state={
         cities:null,
         images:null
@@ -52,6 +52,7 @@ class SelectBanquetCity extends Component {
                                     <div class="card-body justify-content-center">
                                         <h5 class="card-title">{this.state.cities[key]}</h5>
                                         <Link to={"/banquets/"+this.state.cities[key]+"/1"} class="btn m-1 btn-primary">Banquets</Link>
+                                        <Link to={"/banquets/"+this.state.cities[key]+"/1"} class="btn m-1 btn-primary">More</Link>
                                     </div>
                                 </div>
                             </div>
@@ -66,4 +67,4 @@ class SelectBanquetCity extends Component {
     }
 }
 
-export default withRouter( withFirebase(SelectBanquetCity))
+export default withRouter( withFirebase(SelectVendor))

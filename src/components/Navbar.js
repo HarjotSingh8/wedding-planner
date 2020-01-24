@@ -81,13 +81,13 @@ class Navbar extends Component {
   render() {
   return (
       <div >
-        <div className="container-fluid bg-dark text-white" style={{width:'100%'}}>  {/*Navbar*/}
+        <div className=" container-fluid bg-dark text-white" style={{width:'100%'}}>  {/*Navbar*/}
         <div className="row d-flex justify-content-between">
-          <Link className="btn col-12 col-sm-12 col-md-4 btn-dark text-monospaced " to="/">
-          <div className="text-sm-center text-md-left">
+        <div className="d-flex justify-content-center justify-content-sm-center justify-content-md-start col-12 col-sm-12 col-md-4 col-xl-3">
+          <Link className="btn  btn-dark text-monospaced " to="/">
             <b>WEDDING PLANNER</b>
-            </div>
           </Link>
+          </div>
           <div className="d-flex col-12 col-sm-4 col-md-4 justify-content-center" >
           <div className="btn-group">
             <Link className="btn btn-dark" to='/vendors'>VENDORS</Link>
