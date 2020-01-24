@@ -10,7 +10,7 @@ class NavigationAuth extends Component {
     }
     render() {
       return (
-        <div style={{height:'42px', float:'right'}}>
+        <div>
             <Link className="btn btn-dark" to='/userData'>{this.props.username}</Link>
             <SignOutButton />
         </div>

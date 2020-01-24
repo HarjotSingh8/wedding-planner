@@ -21,6 +21,7 @@ import BanquetCitySelector from './banquetcityselector'
 import Nextpage from './Nextpage'
 import Home from './Home'
 import UserData from './UserData'
+import Footer from './Footer';
 
 const App1 =() => (
 <Router basename='/'>
@@ -77,6 +78,7 @@ class App extends Component {
         <Route path="/about"><About /></Route>
         <Route exactpath="/"><Home /></Route>
       </Switch>
+      <Footer/>
       </div>
     </Router>
   );}

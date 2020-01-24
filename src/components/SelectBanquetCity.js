@@ -15,16 +15,20 @@ class SelectBanquetCity extends Component {
     }
     render() {
         return (
-                <div class="row d-flex justify-content-center" style={{marginTop:'2rem', marginLeft:'1rem', marginRight:'1rem'}}>
+                <div className="row justify-content-center bg-light">
                     {Object.keys(this.state.cities).map((key) => {
-                        return <div class="card text-center border-light shadow bg-white rounded" style={{width: '16rem', marginRight:'2rem', marginBottom:'2rem'}}>
-                                <img class="card-img-top" src="..." alt="Card image cap" />
-                                <div class="card-body">
-                                    <h5 class="card-title">{this.state.cities[key]}</h5>
-                                    <Link to={"/banquets/"+this.state.cities[key]+"/1"} class="btn btn-primary" style={{marginRight:'1rem'}}>Banquets</Link>
-                                    <Link to={"/banquets/"+this.state.cities[key]+"/1"} class="btn btn-primary" >More</Link>
+                        return (
+                            <div class="col-6 col-sm-4 col-md-3 mb-5"> 
+                                <div class="card text-center border-light shadow-sm bg-white rounded" >
+                                    <img class="card-img-top" src="..." alt="Card image cap" />
+                                    <div class="card-body justify-content-center">
+                                        <h5 class="card-title">{this.state.cities[key]}</h5>
+                                        <Link to={"/banquets/"+this.state.cities[key]+"/1"} class="btn m-1 btn-primary">Banquets</Link>
+                                        <Link to={"/banquets/"+this.state.cities[key]+"/1"} class="btn m-1 btn-primary">More</Link>
+                                    </div>
                                 </div>
                             </div>
+                        )
                     })}
                 </div>
             

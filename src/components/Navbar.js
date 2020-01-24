@@ -80,21 +80,22 @@ class Navbar extends Component {
   }
   render() {
   return (
-      <div>
-        <div className="d-flex flex-row bg-dark text-white">  {/*Navbar*/}
-          <Link className="btn btn-dark text-monospaced justify-content-center" to="/">
-          <div className="justify-content-center" style={{height:'100%'}}>
+      <div >
+        <div className="container-fluid bg-dark text-white" style={{width:'100%'}}>  {/*Navbar*/}
+        <div className="row d-flex justify-content-between">
+          <Link className="btn col-12 col-sm-12 col-md-4 btn-dark text-monospaced " to="/">
+          <div className="text-sm-center text-md-left">
             <b>WEDDING PLANNER</b>
             </div>
           </Link>
-          <div className="d-flex align-items-end flex-grow-1 flex-wrap" >
-          <div className="btn-group" style={{width:'300px', height:'42px', marginRight:'1px'}}>
-            <Link className="btn btn-dark" to='/venues'>Venues</Link>
+          <div className="d-flex col-12 col-sm-4 col-md-4 justify-content-center" >
+          <div className="btn-group">
             <Link className="btn btn-dark" to='/vendors'>VENDORS</Link>
             <Link className="btn btn-dark" to='/banquets'>BANQUETS</Link>
           </div>
-            <div className="ml-auto"><Navigation authUser={this.state.authUserState} username={this.state.usern} /></div>
-            </div>
+          </div>
+          <div className="col-12 col-sm-6 col-md-4"><Navigation authUser={this.state.authUserState} username={this.state.usern} /></div>
+        </div>
         </div>
       </div>
   );
