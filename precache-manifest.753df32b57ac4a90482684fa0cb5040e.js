@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a8b3d51eb94f171d4b685b439ab2d134",
+    "revision": "06558e28d41f213d12fb3d665d509cef",
     "url": "/wedding-planner/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wedding-planner/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "424bb8b961a95d49a3e4",
+    "revision": "2310feb83e76641a3a5f",
     "url": "/wedding-planner/static/css/main.5d8d06cd.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wedding-planner/static/js/2.e3ee2a31.chunk.js.LICENSE"
   },
   {
-    "revision": "424bb8b961a95d49a3e4",
-    "url": "/wedding-planner/static/js/main.8a5477b9.chunk.js"
+    "revision": "2310feb83e76641a3a5f",
+    "url": "/wedding-planner/static/js/main.056ea09d.chunk.js"
   },
   {
     "revision": "996cd61e83090c606897",
