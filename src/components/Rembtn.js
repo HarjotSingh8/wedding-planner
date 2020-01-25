@@ -9,10 +9,6 @@ class Rembtn extends Component {
         console.log(this.props.firebase.auth.W)
         this.props.firebase.db.ref('/users/'+this.props.firebase.auth.W+'/saved/'+this.props.hash).set(null)
     }
-    componentDidMount() {
-        //console.log(this.props.firebase.auth.W)
-        //console.log("uath="+this.props.authUser)
-    }
     render() {
         return (
     <div style={{position:'absolute', right:'0px', bottom:'0px'}}>

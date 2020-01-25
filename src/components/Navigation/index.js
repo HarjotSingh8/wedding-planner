@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import SignOutButton from '../Signout';
-import * as ROUTES from '../routes';
 import Login from '../Login';
 import Signup from '../Signup';
-import Firebase from '../Firebase'
 import NavigationAuth from './NavigationAuth'
 
 const Navigation = ({authUser, username}) => (

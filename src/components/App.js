@@ -12,7 +12,6 @@ import { withAuthentication } from './Session';
 
 import Navbar from './Navbar.js'
 import Banquets from'./Banquets'
-import Nextpage from './Nextpage'
 import Home from './Home'
 import UserData from './UserData'
 import Footer from './Footer';
@@ -64,9 +63,5 @@ class App extends Component {
   );}
 }
 
-
-function About() {
-  return <h2>About</h2>;
-}
 
 export default  withAuthentication(App);

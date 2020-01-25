@@ -1,20 +1,11 @@
 import React, {Component} from 'react';
 import {
-  HashRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Login from './Login';
-import Signup from './Signup';
-import SignOutButton from './Signout';
-import logo from './logo.png'
 
 import { withFirebase } from './Firebase';
-
-import  { FirebaseContext } from './Firebase';
 import Navigation from './Navigation';
 
 class Navbar extends Component {
@@ -35,11 +26,7 @@ class Navbar extends Component {
     this.props.firebase.db.ref("users/"+this.state.authUserState.uid).once('value').then(function(snapshot) {
       const user = (snapshot.val() && snapshot.val().username) || 'Anonymous';
       console.log("uname="+user)
-      //this.setState({usern:user})
-    })/*.then( () => 
-      this.setState( obj =>{
-        return {usern:user}
-      } ))*/
+    })
   }
   checkUpdate() {
     console.log(this.state.usern)

@@ -17,27 +17,11 @@ class SelectVendor extends Component {
     showstate() {
         console.log(this.props.firebase.storage.ref().child('/cities/'+this.props.city+'Compressed.jpg').getDownloadURL())
     }
-    componentDidUpdate() {
-        /*let citiesdat = {}
-        if(this.state.cities!=null) 
-            Object.keys(this.state.cities).map((key) => {
-                this.props.firebase.storage.ref().child('/cities/agraCompressed.jpg').getDownloadURL().then(url => {
-                    citiesdat[this.state.cities[key]]=url
-                })
-            })
-        if(!this.state.images)
-        this.setState({images:citiesdat})*/
-    }
     componentDidMount() {
         if(!this.state.cities)
         fetch("https://wp-database-d7c6f.firebaseio.com/public/cities.json")
         .then(res => res.json())
         .then(res => this.setState({cities:res}))
-        //console.log(this.props.firebase.storage.ref().child('/cities/agraCompressed.jpg').getDownloadURL())
-        //console.log(this.props.firebase.storage.ref().child('/cities/agraCompressed.jpg'))
-        /*this.props.firebase.storage.ref().child('/cities/agraCompressed.jpg').getDownloadURL().then(url => {
-            this.setState({images:url})
-        })*/
     }
     render() {
         if(this.state.cities!=null)

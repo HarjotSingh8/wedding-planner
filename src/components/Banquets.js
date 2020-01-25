@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLocation, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { withFirebase } from './Firebase';

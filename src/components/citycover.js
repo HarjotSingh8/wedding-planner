@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { render } from "@testing-library/react";
 import { withFirebase } from "./Firebase";
 
 class CityCover extends Component {
@@ -16,11 +15,6 @@ class CityCover extends Component {
         console.log('fetchimg')
         if(this.state.loaded==null) {
             this.props.firebase.storage.ref().child('/cover/'+this.props.city+'Cover.jpg').getDownloadURL().then(this.found,this.notfound)
-            /*url => {
-                console.log(url)
-                this.setState({img:url})}
-                )
-         */   
         }
     }
     found(url) {

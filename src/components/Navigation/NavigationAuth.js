@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Firebase from '../Firebase'
 import { withFirebase } from "../Firebase";
 import SignOutButton from '../Signout'
 import {Link} from 'react-router-dom'

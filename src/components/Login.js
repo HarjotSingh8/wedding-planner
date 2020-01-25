@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withFirebase } from './Firebase';
-import * as ROUTES from './routes';
 
 const Login = () => (
   <div class="row justify-content-center bg-white p-5">

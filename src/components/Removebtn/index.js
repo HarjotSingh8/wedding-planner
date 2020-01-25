@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import * as ROUTES from '../routes';
-import { withAuthentication } from '../Session';
 import WithAuth from './WithAuth'
 
 class Savebtn extends Component {

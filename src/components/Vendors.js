@@ -1,24 +1,10 @@
 import React from 'react';
-import {useLocation, withRouter, Link} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { withFirebase } from './Firebase';
 import CityImg from './cityimg'
-import SelectVendorCity from './SelectVendor'
-import ShowVendors from './ShowVendors'
 import Savebtn from './Savebtn'
-
-/*
-function Banquets1() {
-    let query = new URLSearchParams(useLocation().search);
-    let city=query.get("city");
-    let page=query.get("page");
-    if(city!=null) {
-        if(page==null) { page=1; }
-        return(<ShowBanquets city={city} page={page} />)
-    }
-    else { return(<SelectBanquetCity />) }
-}*/
 
 class Banquets extends React.Component {
     state= {

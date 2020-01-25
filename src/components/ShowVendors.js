@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import { withFirebase } from "./Firebase";
 import Savebtn from './Savebtn';
-import history from './history';
 function searchn() {}
 
 class ShowVendors extends Component {

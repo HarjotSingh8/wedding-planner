@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { render } from "@testing-library/react";
 import { withFirebase } from "./Firebase";
 
 class CityImg extends Component {
