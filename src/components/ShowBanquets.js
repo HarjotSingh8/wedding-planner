@@ -60,7 +60,7 @@ class ShowBanquets extends Component {
                 <div id="banq" class="container-fluid row justify-content-center">
                     {Object.keys(this.state.banquets).map((key) => {
                         return <div class="col-sm-12 col-xl-6 h-100 my-3">
-                                <div class="card text-dark bg-light shadow" style={{border:'0px'}}>
+                                <div class="card text-dark bg-light shadow" style={{border:'0px',overflow:'hidden'}}>
                                     <div class="row d-flex no-gutters">
                                         <div class="col-sm-12 col-md-4" style={{backgroundImage:"url('"+this.state.banquets[key].image+"')", backgroundSize:'cover', minHeight:'271px'}}></div>
                                         <div class="col-sm-12 col-md-8" style={{height:'271px'}}>
@@ -68,9 +68,9 @@ class ShowBanquets extends Component {
                                                 <h4>{ this.state.banquets[key].name }</h4>
                                             </div>
                                             <div class="card-body">
-                                                <p class="card-text">{ this.state.banquets[key].desc }</p>
-                                                <p class="card-text">{ this.state.banquets[key].address }</p>
-                                                <p class="card-text">Price : { this.state.banquets[key].price } per plate</p>
+                                                <p class="card-text" style={{height:'48px', overflow:'hidden'}}>{ this.state.banquets[key].desc }</p>
+                                                <p class="card-text" style={{height:'48px', overflow:'hidden'}}>{ this.state.banquets[key].address }</p>
+                                                <p class="card-text" style={{height:'48px'}}>Price : { this.state.banquets[key].price } per plate</p>
                                                 <Savebtn authUser={this.state.auth} id={key}/>
                                             </div>
                                         </div>

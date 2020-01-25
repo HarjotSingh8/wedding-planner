@@ -2,40 +2,20 @@ import React, {Component} from 'react';
 import {
   HashRouter as Router,
   Switch,
-  Route,
-  Link,
-  withRouter
+  Route
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Vendors from './Vendors'
 
-import { withFirebase } from './Firebase';
 import { withAuthentication } from './Session';
 
 import Navbar from './Navbar.js'
-import All from './all.js'
-import City from './city.js';
-import Navigation from './Navigation'
 import Banquets from'./Banquets'
-import BanquetCitySelector from './banquetcityselector'
 import Nextpage from './Nextpage'
 import Home from './Home'
 import UserData from './UserData'
 import Footer from './Footer';
-
-const App1 =() => (
-<Router basename='/'>
-      <div>
-      <Navbar/>
-      <Switch>
-        <Route path='/banquets' component={Banquets} />
-        <Route path='/Nextpage' component={Nextpage} />
-        <Route path="/about"><About /></Route>
-        <Route exactpath="/"><Home /></Route>
-      </Switch>
-      </div>
-    </Router>)
 
 class App extends Component {
   state= {
@@ -45,10 +25,10 @@ class App extends Component {
     super(props);
   }
   componentDidUpdate() {
-    console.log("update app.js"+this.state.authUser)
+    //console.log("update app.js"+this.state.authUser)
   }
   componentDidMount() {
-    this.props.firebase.storage.ref('/cities/agraCompressed.jpg')
+    //console.log(this.props.firebase.auth)
     this.props.firebase.auth.onAuthStateChanged(
       authUser => {
       if(authUser!=null && authUser!=this.state.authUser)
@@ -66,9 +46,6 @@ class App extends Component {
       <Navbar cities={this.state.cities} authUser={this.state.authUser}/>
       <div>
       <Switch>
-        {/*this.state.cities.map((item, index) => (
-          <Route path={`/city/${item}`}><City city={item} pageno={1}/></Route>
-        ))*/}
         <Route path="/banquets/:c?/:p?" render={(props) => (
           <Banquets authUser={this.state.authUser} {...props} />)
         } />
@@ -78,10 +55,6 @@ class App extends Component {
         <Route path="/userData" render={(props) => (
           <UserData authUser={this.state.authUser} {...props} />)
         } />
-        {/*<Route path='/userData'><UserData authUser={this.state.authUser}/></Route>*/}
-        
-        <Route path="/all"><All banquets={this.state.cities}/></Route>
-        <Route path="/about"><About /></Route>
         <Route exactpath="/"><Home /></Route>
       </Switch>
       </div>

@@ -6,6 +6,7 @@ import Login from '../Login';
 import Signup from '../Signup';
 import Firebase from '../Firebase'
 import NavigationAuth from './NavigationAuth'
+
 const Navigation = ({authUser, username}) => (
   <div className="row justify-content-center justify-content-sm-end">{authUser ? <NavigationAuth authUser={authUser} username={username}/> : <NavigationNonAuth />}</div>
 );

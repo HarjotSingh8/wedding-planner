@@ -72,13 +72,13 @@ class Banquets extends React.Component {
                 <div class="col-6 ">
                     <div class="card embed-responsive embed-responsive-16by9">
                         <img class="card-img-top embed-responsive-item" src="https://cdn.mos.cms.futurecdn.net/gvQ9NhQP8wbbM32jXy4V3j.jpg" style={{objectFit:'cover'}}/>
-                        <Link class="card-img-overlay  text-white" style={{textDecoration: 'none'}} to="/vendors/photographers"><h1 class="card-title"><b>Photographers</b></h1></Link>
+                        <Link class="card-img-overlay  text-white" style={{textDecoration: 'none',fontSize:'6vw'}} to="/vendors/photographers">Photographers</Link>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="card embed-responsive embed-responsive-16by9">
                         <img class="card-img-top embed-responsive-item" src="https://theweddingshow.in/wp-content/uploads/2018/07/makeup.jpg" style={{objectFit:'cover'}}/>
-                        <Link class="card-img-overlay  text-white" style={{textDecoration: 'none'}} to="/vendors/bridalmakeup"><h1 class="card-title"><b>Bridal Makeup</b></h1></Link>
+                        <Link class="card-img-overlay  text-white" style={{textDecoration: 'none',fontSize:'6vw'}} to="/vendors/bridalmakeup">Bridal Makeup</Link>
                     </div>
                 </div>
             </div>

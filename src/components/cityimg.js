@@ -16,11 +16,6 @@ class CityImg extends Component {
         console.log('fetchimg')
         if(this.state.loaded==null) {
             this.props.firebase.storage.ref().child('/cities/'+this.props.city+'Compressed.jpg').getDownloadURL().then(this.found,this.notfound)
-            /*url => {
-                console.log(url)
-                this.setState({img:url})}
-                )
-         */   
         }
     }
     found(url) {
@@ -28,7 +23,7 @@ class CityImg extends Component {
         this.setState({img:url})
     }
     notfound() {
-console.log('not found"'+this.props.city+'"')
+        console.log('not found"'+this.props.city+'"')
     }
     render() {
         if(this.state.img) 
@@ -38,7 +33,7 @@ console.log('not found"'+this.props.city+'"')
             </div>
         )
         return (
-            <img class="card-img-top" src="..." alt="image loading/not available"></img>
+            <img class="card-img-top" src="..." alt="image loading"></img>
         )
     }
 }

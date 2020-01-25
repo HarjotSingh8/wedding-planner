@@ -19,10 +19,8 @@ import Navigation from './Navigation';
 
 class Navbar extends Component {
   state= {
-    cities:{},
     authUserState:null,
-    usern:null,
-    messages:null
+    usern:null
   }
   constructor(props) {
     super(props);
@@ -47,7 +45,6 @@ class Navbar extends Component {
     console.log(this.state.usern)
   }
   componentDidUpdate() {
-    console.log(this.state.messages)
     if(this.state.authUserState!=null)
     this.props.firebase.db.ref("users/"+this.state.authUserState.uid+'/username').on('value', snapshot => {
       const messageObject = snapshot.val();
@@ -59,9 +56,6 @@ class Navbar extends Component {
       }
     });
     
-    /*if(this.state.usern==null && user!=null)
-      this.setState({usern:user})
-    console.log(this.state.usern)*/
   }
   componentDidMount() {
     

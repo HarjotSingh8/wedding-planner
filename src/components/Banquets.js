@@ -7,18 +7,6 @@ import { withFirebase } from './Firebase';
 import SelectBanquetCity from './SelectBanquetCity'
 import ShowBanquets from './ShowBanquets'
 
-/*
-function Banquets1() {
-    let query = new URLSearchParams(useLocation().search);
-    let city=query.get("city");
-    let page=query.get("page");
-    if(city!=null) {
-        if(page==null) { page=1; }
-        return(<ShowBanquets city={city} page={page} />)
-    }
-    else { return(<SelectBanquetCity />) }
-}*/
-
 class Banquets extends React.Component {
     state= {
         city:null,
